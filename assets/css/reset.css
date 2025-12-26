@@ -1,0 +1,36 @@
+/* reset.css - 重置CSS */
+.results-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    z-index: 1 !important;
+}
+
+.table-responsive {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
+.data-table {
+    display: table !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+
+.data-table th,
+.data-table td {
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 1px solid #ddd !important;
+    padding: 8px !important;
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel数据查询系统 - 使用说明</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .code-block {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .section-title {
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+  <nav>
+                    <?php if ($isLoggedIn): ?>
+                        <span>欢迎,使用本系统</span>
+                        <a href="/tp/"><i class="fas fa-key"></i>返回首页</a>
+                      
+                </nav>   
+ <div class="header text-center">
+        <div class="container">
+            <h1><i class="fas fa-file-excel"></i> Excel数据查询系统</h1>
+            <p class="lead">高效、安全的数据查询与管理平台</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h2 class="section-title">项目简介</h2>
+                <p>Excel数据查询系统是一个基于Web的应用程序，用于管理和查询Excel格式的数据文件。系统支持多用户管理、数据搜索、批量导入导出等功能。</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-search fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="text-center">智能搜索</h3>
+                    <p>支持多关键词搜索，快速定位所需数据。可同时搜索多个Excel文件内容。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-shield-alt fa-3x text-success"></i>
+                    </div>
+                    <h3 class="text-center">安全可靠</h3>
+                    <p>多重安全验证，保护您的数据安全。支持用户权限管理和操作日志记录。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-mobile-alt fa-3x text-info"></i>
+                    </div>
+                    <h3 class="text-center">响应式设计</h3>
+                    <p>适配各种设备，随时随地访问。完美支持PC、平板和手机端。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="section-title">系统功能</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>功能模块</th>
+                                <th>功能描述</th>
+                                <th>支持格式</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>文件管理</td>
+                                <td>上传、下载、删除Excel文件</td>
+                                <td>.xls, .xlsx, .csv</td>
+                            </tr>
+                            <tr>
+                                <td>数据查询</td>
+                                <td>多关键词搜索，模糊匹配</td>
+                                <td>所有文本字段</td>
+                            </tr>
+                            <tr>
+                                <td>用户管理</td>
+                                <td>添加、编辑、删除用户账户</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>批量操作</td>
+                                <td>批量导入用户，批量审核</td>
+                                <td>.csv, .xlsx</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <h2 class="section-title">安装指南</h2>
+                <ol>
+                    <li>确保服务器环境满足要求：
+                        <ul>
+                            <li>PHP 7.4+</li>
+                            <li>MySQL 5.7+</li>
+                            <li>Apache/Nginx</li>
+                        </ul>
+                    </li>
+                    <li>克隆项目仓库：
+                        <div class="code-block mt-2">
+                            git clone https://github.com/your-repo/excel-query-system.git
+                        </div>
+                    </li>
+                    <li>安装依赖：
+                        <div class="code-block mt-2">
+                            composer install
+                        </div>
+                    </li>
+                    <li>导入数据库：
+                        <div class="code-block mt-2">
+                            mysql -u username -p database_name &lt; sql/schema.sql
+                        </div>
+                    </li>
+                    <li>配置环境变量：
+                        <div class="code-block mt-2">
+                            cp .env.example .env<br>
+                            vi .env
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title">使用说明</h2>
+                <div class="accordion" id="usageAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                用户登录
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <p>1. 访问系统首页</p>
+                                <p>2. 输入用户名和密码</p>
+                                <p>3. 点击"登录"按钮</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                文件上传
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>1. 点击"上传文件"按钮</p>
+                                <p>2. 选择要上传的Excel文件</p>
+                                <p>3. 填写文件描述信息</p>
+                                <p>4. 点击"提交"按钮</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                数据查询
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>1. 在搜索框输入关键词</p>
+                                <p>2. 选择要搜索的文件</p>
+                                <p>3. 点击"搜索"按钮</p>
+                                <p>4. 查看搜索结果</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="section-title">常见问题</h2>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+                                如何重置密码？
+                            </button>
+                        </h2>
+                        <div id="faqOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <p>请联系系统管理员重置密码，或使用"忘记密码"功能通过邮箱重置。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                                支持哪些Excel版本？
+                            </button>
+                        </h2>
+                        <div id="faqTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>系统支持Excel 2007及以上版本(.xlsx)，以及Excel 97-2003(.xls)格式的文件。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
+                                文件大小限制是多少？
+                            </button>
+                        </h2>
+                        <div id="faqThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>默认文件大小限制为10MB，可在系统设置中调整。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">技术支持</h3>
+                        <p class="card-text">
+                            <i class="fas fa-envelope me-2"></i> admin@ypvps.com<br>
+                            <i class="fas fa-phone me-2"></i> QQ 278910201
+                        </p>
+                        <p class="text-muted">© 2025 Excel数据查询系统 版权所有 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
